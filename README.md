@@ -37,6 +37,7 @@ ppplot(
 ```R
 ppplot=dget('ppplot.R')
 
+set.seed(50)
 X=seq(0,1, length=1000)
 n.pr=exp(X*2)/exp(2)
 n.I=rbinom(1000,prob=n.pr,size=1) > 0
@@ -44,6 +45,7 @@ p.val=rep(NA,1000)
 p.val[n.I]=runif(sum(n.I))
 p.val[!n.I]=rbeta(sum(!n.I),1,3)
 
-ppplot(p.val,X, lambda = seq(0.7,0.9,0.05), cuts = 20)
+ppplot(p.val,X, lambda = seq(0.7,0.9,0.05), cuts = 15)
 ```
+![example](ppplot.png)
 
