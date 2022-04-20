@@ -7,7 +7,8 @@ PP-Plot (progressive proportions plot) is a visual tool to help identify the fun
 ## Implementation
 
 1. Download the *pplot.R* file to your system
-2. In your R code, run the following command (replacing `path_to_file` with the actual path in your system where the .R file is located)
+2. Install and load `gtools` and `ggplot`, the latter is optional if you want to do your own plot
+3. In your R code, run the following command (replacing `path_to_file` with the actual path in your system where the .R file is located)
 
 ```R
 ppplot <- dget('/path_to_file/ppplot.R')
@@ -35,6 +36,8 @@ ppplot(
 #### Example
 
 ```R
+library(gtools)
+library(ggplot2)
 ppplot=dget('ppplot.R')
 
 set.seed(50)
