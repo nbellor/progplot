@@ -1,22 +1,22 @@
-# PP-Plot
+# Prog-Plot
 
 ## Introduction
 
-PP-Plot (progressive proportions plot) is a visual tool to help identify the functional relationship between the covariate and the null proportion in RNA-Seq experimments where a multiple tests correction is performed including a covariate. PP-Plot was made to identify this relationship in the context of the correction proposed by Boca and Leek, that's why it presents curves based on different choices of lambda in a progressive manner.
+Prog-Plot (progressive proportions plot) is a visual tool to help identify the functional relationship between the covariate and the null proportion in RNA-Seq experimments where a multiple tests correction is performed including a covariate. PP-Plot was made to identify this relationship in the context of the correction proposed by Boca and Leek, that's why it presents curves based on different choices of lambda in a progressive manner.
 
 ## Implementation
 
-1. Download the *pplot.R* file to your system
+1. Download the *progplot.R* file to your system
 2. Install and load `gtools` and `ggplot`, the latter is optional if you want to do your own plot
 3. In your R code, run the following command (replacing `path_to_file` with the actual path in your system where the .R file is located)
 
 ```R
-ppplot <- dget('/path_to_file/ppplot.R')
+ppplot <- dget('/path_to_file/progplot.R')
 ```
 ## Use
 
 ```R
-ppplot(
+progplot(
   pval,
   cov,
   lambda=seq(0.85,0.9,0.05),
@@ -38,7 +38,7 @@ ppplot(
 ```R
 library(gtools)
 library(ggplot2)
-ppplot=dget('ppplot.R')
+ppplot=dget('progplot.R')
 
 set.seed(50)
 X=seq(0,1, length=1000)
@@ -48,7 +48,7 @@ p.val=rep(NA,1000)
 p.val[n.I]=runif(sum(n.I))
 p.val[!n.I]=rbeta(sum(!n.I),1,3)
 
-ppplot(p.val,X, lambda = seq(0.7,0.9,0.05), cuts = 15)
+progplot(p.val,X, lambda = seq(0.7,0.9,0.05), cuts = 15)
 ```
-![example](ppplot.png)
+![example](progplot.png)
 
